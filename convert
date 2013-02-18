@@ -1,0 +1,37 @@
+function revert(n,ig){
+   var str=n.toString();     
+   if(ig instanceof Array)
+   {
+       //TODO
+   }else{
+     var r=[],v=0,j=0,x=0;
+     while(n>0)
+     {
+        x=n%10;n=parseInt(n/10);
+        v=v+parseInt(x>ig?x-1:x)*Math.pow(9,j++); 
+     }
+       return v;
+   }
+}
+
+function convert(n,ig){
+   var str=n.toString();     
+   if(ig instanceof Array)
+   {
+       //TODO
+   }else{
+     var r=[],x=0;
+     while(n>0)
+     {
+        x=n%9;n=parseInt(n/9);
+        r.push(x>=ig?x+1:x);
+     }
+      r.reverse();
+      return r.join("");
+   }
+}
+
+for(i=1;i<100;i++){
+  console.log(convert(i,7));
+  console.log(revert(convert(i,7),7));
+}
