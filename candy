@@ -1,4 +1,12 @@
 public class Solution {
+
+/**
+
+    我的O(n)实现思路，办法比较笨，属于死磕。
+    例如4、3、2、1、10、9、8，设初始偏移量offset在4的位置0时，当i介于4跟10间，每i++那么总量total增加i距离的差(i-offset)个糖果，
+    继续右移，发现ratings[i]>ratings[i-1]即当10为初始偏移量时，最后一位权重为8的孩童，在返回处额外处理。
+    麻烦点是1、2、3、5、4、3、，4的位置应该补2为最小值即使应该分配1、2、3、5、2、1为正确答案。
+**/
    public static int candy(int[] ratings) {
 	        if(ratings.length<=1)
 	            return 1;
